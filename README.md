@@ -119,6 +119,19 @@ applicant-management-system/
 
 ---
 
+## ✅ Deliverables
+- Complete, runnable Laravel application.
+- Fully functional **Applicant Portal** & **Admin Dashboard**.
+- Repository includes this **README.md** with setup instructions.
+- Code structured for maintainability and clarity.
+
+---
+
+## ⚠️ Notes (if incomplete)
+If certain features are not implemented, please document them here with reasons (time, complexity, dependencies, etc.).
+
+---
+
 ## 📧 Contact
 For any questions or issues regarding this project, please reach out to:  
-**Samuel Napitupulu** – [srajanapitupulu@gmail.com]  
+**Your Name** – [your.email@example.com]  
