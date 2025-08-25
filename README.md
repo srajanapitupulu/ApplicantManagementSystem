@@ -49,9 +49,8 @@ The system has two main parts:
 ## 🛠️ Tech Stack
 - **Backend:** Laravel (PHP 8+ recommended)  
 - **Frontend:** Blade Templates / Vue.js (optional)  
-- **Database:** MySQL / MariaDB  
-- **Authentication:** Laravel Auth (simple login for Admin)  
-- **Styling:** TailwindCSS / Bootstrap (developer’s choice)  
+- **Database:** SQLite
+- **Styling:** TailwindCSS and Vanilla CSS
 
 ---
 
@@ -65,15 +64,21 @@ The system has two main parts:
 
 ### Steps
 1. **Clone the repository**
+   using HTTPS:
    ```bash
-   git clone https://github.com/your-username/applicant-management-system.git
-   cd applicant-management-system
+   git clone https://github.com/srajanapitupulu/ApplicantManagementSystem.git
+   cd ApplicantManagementSystem
+   ```
+
+   Using SSH:
+   ```bash
+   git clone git@github.com:srajanapitupulu/ApplicantManagementSystem.git
+   cd ApplicantManagementSystem
    ```
 
 2. **Install dependencies**
    ```bash
    composer install
-   npm install && npm run dev
    ```
 
 3. **Set up environment**
@@ -84,12 +89,9 @@ The system has two main parts:
 
    Update your `.env` file with database credentials:
    ```env
-   DB_CONNECTION=mysql
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
-   DB_DATABASE=ams_db
-   DB_USERNAME=root
-   DB_PASSWORD=your_password
+   DB_CONNECTION=sqlite
+   DB_DATABASE=database/database.sqlite
+   DB_FOREIGN_KEYS=true
    ```
 
 4. **Run migrations & seeders**
@@ -97,18 +99,28 @@ The system has two main parts:
    php artisan migrate --seed
    ```
 
-5. **Serve the application**
+5. **Link storage for uploads**
+   ```bash
+   php artisan storage:link
+   ```
+
+6. **Serve the application**
    ```bash
    php artisan serve
    ```
 
    App will run at: `http://127.0.0.1:8000`
 
+7. **Login Credentials**
+   ```bash
+   username: admin@demo.com
+   password: password123
+   ```
 ---
 
 ## 📊 Project Structure
 ```
-applicant-management-system/
+ApplicantManagementSystem/
 ├── app/            # Core application code
 ├── database/       # Migrations & seeders
 ├── resources/      # Blade views, frontend assets
@@ -127,11 +139,6 @@ applicant-management-system/
 
 ---
 
-## ⚠️ Notes (if incomplete)
-If certain features are not implemented, please document them here with reasons (time, complexity, dependencies, etc.).
-
----
-
 ## 📧 Contact
 For any questions or issues regarding this project, please reach out to:  
-**Your Name** – [your.email@example.com]  
+**Samuel Napitupulu** – [srajanapitupulu@example.com]  
