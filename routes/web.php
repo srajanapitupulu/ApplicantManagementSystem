@@ -29,15 +29,13 @@ Route::get('/admin/logout', function () {
     return redirect()->route('admin.login');
 })->name('admin.logout');
 
-Route::middleware(['admin'])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
-});
-
 Route::prefix('admin')
     ->as('admin.')
     ->middleware('admin')
     ->group(function () {
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard');
+        })->name('dashboard');
+
         Route::resource('tasks', TaskController::class);
     });

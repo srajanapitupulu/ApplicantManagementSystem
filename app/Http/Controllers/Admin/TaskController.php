@@ -18,6 +18,10 @@ class TaskController extends Controller
     {
         return view('admin.tasks.create');
     }
+    public function show(Task $task)
+    {
+        return view('admin.tasks.show', compact('task'));
+    }
 
     public function store(Request $request)
     {

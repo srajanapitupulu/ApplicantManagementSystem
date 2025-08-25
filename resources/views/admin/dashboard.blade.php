@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html>
+@extends('admin.layout')
 
-<head>
-    <title>Admin Dashboard</title>
-</head>
-
-<body>
-    <h2>Welcome to the Admin Dashboard</h2>
-
-    <ul>
-        <li><a href="{{ route('admin.tasks.index') }}">Manage Tasks</a></li>
-        {{-- later we’ll add Applicant Management here --}}
-    </ul>
-
-    <a href="{{ route('admin.logout') }}">Logout</a>
-</body>
-
-</html>
+@section('content')
+    <h1>Welcome to the Dashboard</h1>
+    <p>Use the sidebar to navigate between sections.</p>
+@endsection
