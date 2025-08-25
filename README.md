@@ -59,8 +59,6 @@ The system has two main parts:
 ### Prerequisites
 - PHP 8.1+  
 - Composer  
-- MySQL or MariaDB  
-- Node.js & NPM/Yarn  
 
 ### Steps
 1. **Clone the repository**
