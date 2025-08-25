@@ -110,7 +110,14 @@ The system has two main parts:
 
    App will run at: `http://127.0.0.1:8000`
 
-8. **Login Credentials**
+   
+   After you clone the repository and run each installation and configuration steps, the admin dashboard will be accessible at:
+   ```bash
+   http://127.0.0.1:8000/admin/login
+   ```
+   The applicant portal can be accessed using the portal link generated for each applicant.
+
+9. **Login Credentials**
    ```bash
    username: admin@demo.com
    password: password123
