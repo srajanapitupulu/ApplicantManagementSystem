@@ -10,7 +10,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = Task::withCount('applicants')->latest()->paginate(10);
         return view('admin.tasks.index', compact('tasks'));
     }
 
@@ -20,6 +20,7 @@ class TaskController extends Controller
     }
     public function show(Task $task)
     {
+        $task->load('applicants');
         return view('admin.tasks.show', compact('task'));
     }
 

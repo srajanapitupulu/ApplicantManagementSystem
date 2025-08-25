@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Admin\TaskController;
+use App\Http\Controllers\Admin\ApplicantController;
+use App\Http\Controllers\Admin\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,9 +35,16 @@ Route::prefix('admin')
     ->as('admin.')
     ->middleware('admin')
     ->group(function () {
-        Route::get('/dashboard', function () {
-            return view('admin.dashboard');
-        })->name('dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::resource('tasks', TaskController::class);
+
+        Route::resource('applicants', ApplicantController::class);
+        Route::patch('applicants/{applicant}/status', [ApplicantController::class, 'updateStatus'])->name('applicants.updateStatus');
+
     });
+
+use App\Http\Controllers\ApplicantPortalController;
+
+Route::get('/portal/{token}', [ApplicantPortalController::class, 'show'])
+    ->name('applicant.portal');
