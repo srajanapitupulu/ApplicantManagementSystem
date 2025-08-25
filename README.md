@@ -62,7 +62,8 @@ The system has two main parts:
 
 ### Steps
 1. **Clone the repository**
-   using HTTPS:
+   
+   Using HTTPS:
    ```bash
    git clone https://github.com/srajanapitupulu/ApplicantManagementSystem.git
    cd ApplicantManagementSystem
@@ -74,12 +75,12 @@ The system has two main parts:
    cd ApplicantManagementSystem
    ```
 
-2. **Install dependencies**
+3. **Install dependencies**
    ```bash
    composer install
    ```
 
-3. **Set up environment**
+4. **Set up environment**
    ```bash
    cp .env.example .env
    php artisan key:generate
@@ -92,24 +93,24 @@ The system has two main parts:
    DB_FOREIGN_KEYS=true
    ```
 
-4. **Run migrations & seeders**
+5. **Run migrations & seeders**
    ```bash
    php artisan migrate --seed
    ```
 
-5. **Link storage for uploads**
+6. **Link storage for uploads**
    ```bash
    php artisan storage:link
    ```
 
-6. **Serve the application**
+7. **Serve the application**
    ```bash
    php artisan serve
    ```
 
    App will run at: `http://127.0.0.1:8000`
 
-7. **Login Credentials**
+8. **Login Credentials**
    ```bash
    username: admin@demo.com
    password: password123
