@@ -10,7 +10,8 @@ class TaskFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(4),
-            'description' => $this->faker->paragraph(3),
+            'description' => $this->faker->paragraphs(10, true),
+            //->paragraph(20),
         ];
     }
 }

@@ -3,7 +3,9 @@
 @section('content')
     <div class="bg-white shadow rounded-lg p-6">
         <h1 class="text-2xl font-semibold text-gray-700 mb-4">{{ $task->title }}</h1>
-        <p class="text-gray-600 mb-6">{{ $task->description }}</p>
+        <div class="mb-6 p-4 bg-gray-100 rounded">
+            {!! nl2br(e($task->description)) !!}
+        </div>
 
         <div class="mb-6">
             <span class="text-sm text-gray-500">Created at:</span>

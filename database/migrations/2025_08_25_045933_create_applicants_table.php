@@ -21,6 +21,9 @@ return new class extends Migration {
             $table->timestamp('timer_started_at')->nullable();
             $table->timestamp('due_at')->nullable();
             $table->timestamp('extended_until')->nullable();
+            $table->string('submission_file')->nullable();
+            $table->string('submission_link')->nullable();
+            $table->string('submission_notes')->nullable();
             $table->timestamp('submitted_at')->nullable();
 
             // unique token to generate applicant-specific URL

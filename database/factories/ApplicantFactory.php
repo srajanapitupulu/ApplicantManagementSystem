@@ -13,8 +13,8 @@ class ApplicantFactory extends Factory
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
             'email' => $this->faker->unique()->safeEmail,
-            'status' => $this->faker->randomElement(['email_sent', 'under_review', 'submitted']),
-            'stage' => $this->faker->randomElement(['welcome', 'instructions', 'submission', 'confirmation']),
+            'status' => 'email_sent',
+            'stage' => 'welcome',
             'portal_token' => $this->faker->uuid,
         ];
     }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\TaskController;
 use App\Http\Controllers\Admin\ApplicantController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\ApplicantPortalController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -44,7 +45,18 @@ Route::prefix('admin')
 
     });
 
-use App\Http\Controllers\ApplicantPortalController;
+// Route::prefix('portal')->group(function () {
+//     Route::get('/{token}', [ApplicantPortalController::class, 'show'])->name('applicant.portal');
+//     Route::post('/{token}/start', [ApplicantPortalController::class, 'startTest'])->name('applicant.portal.start');
+//     Route::post('/{token}/next', [ApplicantPortalController::class, 'nextStep'])->name('applicant.portal.next');
+//     Route::post('/{token}/prev', [ApplicantPortalController::class, 'prevStep'])->name('applicant.portal.prev');
+//     Route::post('/{token}/submit', [ApplicantPortalController::class, 'submit'])->name('applicant.portal.submit');
+// });
 
-Route::get('/portal/{token}', [ApplicantPortalController::class, 'show'])
-    ->name('applicant.portal');
+Route::prefix('portal')->group(function () {
+    Route::get('/{token}', [ApplicantPortalController::class, 'show'])->name('applicant.portal');
+    Route::post('/{token}/next', [ApplicantPortalController::class, 'nextStep'])->name('applicant.portal.next');
+    Route::post('/{token}/prev', [ApplicantPortalController::class, 'prevStep'])->name('applicant.portal.prev');
+    Route::post('/{token}/submit', [ApplicantPortalController::class, 'submit'])->name('applicant.portal.submit');
+});
+
