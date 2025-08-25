@@ -46,7 +46,10 @@
                 @forelse ($recentTasks as $task)
                     <tr class="border-b hover:bg-gray-50">
                         <td class="p-2">{{ $task->id }}</td>
-                        <td class="p-2">{{ $task->title }}</td>
+                        <td class="p-2">
+                            <a href="{{ route('admin.tasks.show', $task) }}"
+                                class="text-blue-600 hover:underline">{{ $task->title }}</a>
+                        </td>
                         <td class="p-2">{{ $task->created_at->format('Y-m-d H:i') }}</td>
                         <td class="p-2">{{ $task->is_active == 1 ? 'active' : 'not active' }}</td>
                     </tr>
@@ -57,7 +60,7 @@
                 @endforelse
             </tbody>
         </table>
-        <div class="mt-3 text-right">
+        <div class="mt-3 text-sm font-bold text-right">
             <a href="{{ route('admin.tasks.index') }}" class="text-blue-600 hover:underline">View All Tasks →</a>
         </div>
     </div>
@@ -79,10 +82,26 @@
                 @forelse ($recentApplicants as $applicant)
                     <tr class="border-b hover:bg-gray-50">
                         <td class="p-2">{{ $applicant->id }}</td>
-                        <td class="p-2">{{ $applicant->full_name }}</td>
+                        <td class="p-2">
+                            <a href="{{ route('admin.applicants.show', $applicant) }}"
+                                style="color: #1d4ed8; text-decoration: none;">
+                                {{ $applicant->full_name }}
+                            </a>
+                        </td>
                         <td class="p-2">{{ $applicant->email }}</td>
                         <td class="p-2">{{ $applicant->task->title ?? '-' }}</td>
-                        <td class="p-2 capitalize">{{ $applicant->status_label }}</td>
+                        <td class="py-2 px-4">
+                            @php
+                                $statusColors = [
+                                    'email_sent' => '#facc15',
+                                    'under_review' => '#3b82f6',
+                                    'submitted' => '#10b981'
+                                ];
+                            @endphp
+                            <span style="color: #fff; background-color: {{ $statusColors[$applicant->status] ?? '#6b7280' }}; padding: 4px 8px; border-radius: 4px; font-size: 12px;">
+                                {{ $applicant->status_label }}
+                            </span>
+                        </td>
                     </tr>
                 @empty
                     <tr>
@@ -91,7 +110,7 @@
                 @endforelse
             </tbody>
         </table>
-        <div class="mt-3 text-right">
+        <div class="mt-3 text-sm font-bold text-right">
             <a href="{{ route('admin.applicants.index') }}" class="text-blue-600 hover:underline">View All Applicants →</a>
         </div>
     </div>

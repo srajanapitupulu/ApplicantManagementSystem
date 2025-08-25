@@ -9,11 +9,27 @@
                 {{ $applicant->first_name }} {{ $applicant->last_name }}
             </h1>
 
-            <div style="margin-bottom: 20px; line-height: 1.6;">
-                <p><strong>Email:</strong> {{ $applicant->email }}</p>
-                <p><strong>Status:</strong> {{ ucfirst(str_replace('_', ' ', $applicant->status)) }}</p>
-                <p>
-                    <strong>Task:</strong>
+            <div
+                style="display: grid; grid-template-columns: max-content 1fr; row-gap: 12px; column-gap: 10px; align-items: center; margin-bottom: 30px;">
+
+                <strong style="color: #555;">Email:</strong>
+                <span>{{ $applicant->email }}</span>
+
+                <strong style="color: #555;">Status:</strong>
+                @php
+                    $statusColors = [
+                        'email_sent' => '#facc15',
+                        'under_review' => '#3b82f6',
+                        'submitted' => '#10b981'
+                    ];
+                @endphp
+                <span
+                    style="width: 100px; color: #fff; background-color: {{ $statusColors[$applicant->status] ?? '#6b7280' }}; padding: 4px 8px; border-radius: 4px; font-size: 15px; text-align: center; font-weight: bold;">
+                    {{ $applicant->status_label }}
+                </span>
+
+                <strong style="color: #555;">Task:</strong>
+                <span>
                     {{ $applicant->task->title ?? '-' }}
                     @if($applicant->task)
                         <button id="copyPortalBtn"
@@ -21,11 +37,12 @@
                             Copy Link
                         </button>
                     @endif
-                </p>
-                <p><strong>Submitted At:</strong>
-                    {{ $applicant->submitted_at ? $applicant->submitted_at->format('Y-m-d H:i') : '-' }}
-                </p>
+                </span>
+
+                <strong style="color: #555;">Submitted At:</strong>
+                <span>{{ $applicant->submitted_at ? $applicant->submitted_at->format('Y-m-d H:i') : '-' }}</span>
             </div>
+
 
             @if($applicant->submission_link || $applicant->submission_file || $applicant->submission_notes)
                 <h2 style="font-size: 20px; font-weight: bold; margin-bottom: 12px; color: #333;">Submission</h2>

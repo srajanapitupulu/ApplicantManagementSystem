@@ -39,8 +39,8 @@
                                 ];
                             @endphp
                             <span style="color: #fff; background-color: {{ $statusColors[$applicant->status] ?? '#6b7280' }};
-                                                 padding: 4px 8px; border-radius: 4px; font-size: 12px;">
-                                {{ ucfirst(str_replace('_', ' ', $applicant->status)) }}
+                                                         padding: 4px 8px; border-radius: 4px; font-size: 12px;">
+                                {{ $applicant->status_label }}
                             </span>
                         </td>
                         <td class="py-2 px-4">
